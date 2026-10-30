@@ -1,0 +1,4 @@
+com\example\model\Customer.class
+com\example\async\AsyncExample.class
+com\example\async\CompFuture.class
+com\example\azure\BlobSasExample.class

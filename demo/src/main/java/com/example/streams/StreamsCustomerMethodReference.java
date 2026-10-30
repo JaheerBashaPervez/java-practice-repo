@@ -1,0 +1,33 @@
+package com.example.streams;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.example.model.Customer;
+import com.example.model.DatabaseCustomers;
+
+public class StreamsCustomerMethodReference {
+
+	public static void main(String[] args) {
+		
+		List<Customer> customerList = DatabaseCustomers.getCustomers();
+		
+		List<String> emailList = customerList.stream().map(Customer::getEmail).collect(Collectors.toList());
+		System.out.println(emailList);
+		
+		List<String> phoneList = customerList.parallelStream().
+								 flatMap(cust->cust.getPhoneNumbers().stream()).
+								 collect(Collectors.toList());
+		System.out.println(phoneList);
+
+		List<Customer> customerFilter=customerList.stream().filter(s-> s.getEmail().equals("jah@email.com")).collect(Collectors.toList());
+		customerFilter.forEach(System.out::println);
+		
+		Customer customerFind=customerList.stream().filter(s-> s.getEmail().equals("jah@email.com")).findAny().get();
+		System.out.println(customerFind.toString());
+		
+	}
+	
+	
+
+}

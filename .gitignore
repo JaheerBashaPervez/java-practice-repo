@@ -1,0 +1,19 @@
+# Java build output
+*.class
+target/
+build/
+out/
+bin/
+.gradle/
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+
+# macOS
+.DS_Store
